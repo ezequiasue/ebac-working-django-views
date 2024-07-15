@@ -15,12 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-# core/urls.py
-
-from django.urls import path
-from blog.views.post_view import PostView # Ajuste o caminho de importação conforme necessário
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/', PostView.as_view(), name='index'),
+    path('', include('blog.urls')),  # Inclua as URLs do seu app blog
 ]
